@@ -8,14 +8,14 @@
 ## 4. obtener el valor de la inversa de la matriz
 
 makeCacheMatrix <- function(x = matrix()) {
-    j <- NULL
+    m <- NULL
     set <- function(y) {
         x <<- y
-        j <<- NULL
+        m <<- NULL
     }
     get <- function()x
-    setInverse <- function(inverse) j <<- inverse
-    getInverse <- function() j 
+    setInverse <- function(inverse) m <<- inverse
+    getInverse <- function() m 
     list(
         set = set, get = get, 
         setInverse = setInverse, 
@@ -30,13 +30,13 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
-    j <- x$getInverse()
-    if(!is.null(j)){
+    m <- x$getInverse()
+    if(!is.null(m)){
         message("getting cached data")
-        return(j)
+        return(m)
   }
   mat <- x$get()
-  j <- solve(mat,...)
-  x$setInverse(j)
-  j
+  m <- solve(mat,...)
+  x$setInverse(m)
+  m
 }
